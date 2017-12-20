@@ -3,5 +3,13 @@ module.exports = {
 
   session: {
     secret: 'session-big-secret'
+  },
+
+  mongo: {
+    connectUri: '',
+
+    options: {
+
+    }
   }
 };
