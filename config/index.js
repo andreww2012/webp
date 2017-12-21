@@ -6,10 +6,11 @@ module.exports = {
   },
 
   mongo: {
-    connectUri: '',
+    connectUri: 'mongodb://localhost:27017/webp',
 
     options: {
-
-    }
+      useMongoClient: true,
+      keepAlive: true,
+    },
   }
 };
