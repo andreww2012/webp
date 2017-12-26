@@ -5,31 +5,29 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const compression = require('compression');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const ejs = require('ejs-locals');
+const session = require('./middleware/session');
+const nunjucks = require('nunjucks');
 
 const app = express();
 
 app.set('port', config.port);
 
-app.engine('ejs', ejs);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(helmet());
 app.use(compression());
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/dist', express.static('dist'));
 
-app.use(session({
-  secret: config.session.secret,
-  store: new MongoStore()
-}));
+app.use(session());
+
+nunjucks.configure(__dirname, {
+  autoescape: true,
+  express: app
+});
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'TEST'
+  res.render('views/index.njs', {
+    message: 'Super message'
   });
 });
 
