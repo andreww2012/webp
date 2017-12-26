@@ -20,13 +20,13 @@ app.use('/dist', express.static('dist'));
 
 app.use(session());
 
-nunjucks.configure(__dirname, {
+nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: true,
   express: app
 });
 
 app.get('/', (req, res) => {
-  res.render('views/index.njs', {
+  res.render('index.njs', {
     message: 'Super message'
   });
 });

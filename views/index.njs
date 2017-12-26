@@ -1,5 +1,5 @@
-{% extends "../dist/layout.html" %}
+{% extends "index.html" %}
 {% set tille = "Главная страница" %}
 {% block content %}
-  Hello world! Message: {{ message }}
+  Hello world!!1! Message: {{ message }}
 {% endblock %}
