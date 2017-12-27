@@ -16,17 +16,17 @@ app.use(logger('dev'));
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/dist', express.static('dist'));
+app.use('/', express.static('dist'));
 
 app.use(session());
 
-nunjucks.configure(path.join(__dirname, 'views'), {
+nunjucks.configure(path.join(__dirname, 'src/views'), {
   autoescape: true,
   express: app
 });
 
 app.get('/', (req, res) => {
-  res.render('index.njs', {
+  res.render('index.njk', {
     message: 'Super message'
   });
 });

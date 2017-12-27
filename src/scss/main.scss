@@ -1,5 +1,17 @@
 @import "./fonts";
 
-body {
-  background: yellowgreen;
+html {
+  font-family: 'Source Sans Pro', 'Arial', sans-serif;
+  font-size: 16px;
 }
+
+body {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+a {
+  text-decoration: none;
+}
+
+@import "container";
+@import "header";

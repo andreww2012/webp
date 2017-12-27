@@ -9,7 +9,17 @@
 </head>
 
 <body>
-  {% block content %}
-  {% endblock %}
+  <header class="header">
+    <div class="container">
+      <a class="header__title" href="/">
+        Заголовок
+      </a>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
 </body>
 </html>

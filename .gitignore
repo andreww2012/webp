@@ -1,7 +1,11 @@
 .cache/
 .vscode/
 dist/
+
+# Files with "_" in the front of its names
 _*.*
+
+### Node gitignore
 
 # Logs
 logs

@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  padding: 15px;
+  box-sizing: content-box;
+  background: #00004d;
+}
+
+.header__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  transition-duration: 100ms;
+  &:hover {
+    color: #ff2400;
+  }
+}
