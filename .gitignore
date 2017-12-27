@@ -1,6 +1,7 @@
 .cache/
 .vscode/
 dist/
+_*.*
 
 # Logs
 logs
