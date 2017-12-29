@@ -11,13 +11,29 @@
 <body>
   <header class="header">
     <div class="container">
-      <a class="header__title" href="/">
-        Заголовок
-      </a>
+      <div>
+        <a class="header__title" href="/">
+          Пройти тест
+        </a>
+      </div>
+      <div>
+        {% if user %}
+          <a class="header__link" href="/profile">
+            {{ user.username }}
+          </a>
+          <a class="header__link" href="/auth/logout">
+            Выйти
+          </a>
+        {% else %}
+          <a class="header__link" href="/auth/form">
+            Войти или зарегистрироваться
+          </a>
+        {% endif %}
+      </div>
     </div>
   </header>
 
-  <main>
+  <main class="container main">
     {% block content %}
     {% endblock %}
   </main>

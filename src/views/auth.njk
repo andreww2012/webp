@@ -1,0 +1,27 @@
+{% set title = 'Авторизация или регистрация' %}
+{% extends '_layout.njk' %}
+{% block content %}
+  {% if authMessage %}
+    <div class="message">
+      Для просмотра данный страницы необходимо авторизоваться.
+    </div>
+  {% endif %}
+
+  <h1 class="title">
+    {{ title }}
+  </h1>
+
+  <form class="form" action="/auth/auth" enctype="application/x-www-form-urlencoded" method="post">
+    <div class="form__field">
+      <label for="username">Имя пользователя</label>
+      <input class="input" type="text" name="username" id="username" placeholder="Имя пользователя" required>
+    </div>
+    <div class="form__field">
+      <label for="password">Пароль</label>
+      <input class="input " type="password" name="password" id="password" placeholder="Пароль" required>
+    </div>
+    <div>
+      <input class="submit" type="submit" value="Отправить">
+    </div>
+  </form>
+{% endblock %}

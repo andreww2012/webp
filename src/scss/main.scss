@@ -1,17 +1,30 @@
-@import "./fonts";
+@import "fonts";
+@import "vars";
 
-html {
-  font-family: 'Source Sans Pro', 'Arial', sans-serif;
+body {
+  background: $background;
   font-size: 16px;
 }
 
-body {
-  background: rgba(0, 0, 0, 0.1);
+body, input {
+  font-family: 'Source Sans Pro', 'Arial', sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: $primary;
+  &:hover {
+    color: $primary-pair;
+  }
 }
 
+h1, h2 {
+  margin: 7px 0;
+}
+
+@import "title";
 @import "container";
 @import "header";
+@import "message";
+@import "form";
+@import "test";

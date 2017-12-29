@@ -1,0 +1,15 @@
+{% set title = 'Вашп профиль' %}
+{% extends '_layout.njk' %}
+{% block content %}
+  <h1 class="title">Привет, {{ user.username }}</h1>
+  {% if user.tests.length %}
+    <p>Завершённые вами тесты:</p>
+    {% for test in user.tests %}
+      <p><a href="/result?_id={{ test._id }}">Попытка {{ test.date }}</a></p>
+    {% endfor %}
+  {% else %}
+    <div class="message">
+      Вы ещё не завершили ни одного теста.
+    </div>
+  {% endif %}
+{% endblock %}

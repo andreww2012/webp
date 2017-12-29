@@ -1,0 +1,21 @@
+@import "vars";
+
+.test {
+  list-style-type: none;
+  padding: 0;
+}
+
+.test__item {
+  padding: 20px;
+  margin: 10px 0;
+  background: $background;
+}
+
+.test__question {
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+}
+
+.test__answer {
+  margin: 1px 0;
+}

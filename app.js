@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const session = require('./middleware/session');
 const nunjucks = require('nunjucks');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
@@ -25,11 +26,9 @@ nunjucks.configure(path.join(__dirname, 'src/views'), {
   express: app
 });
 
-app.get('/', (req, res) => {
-  res.render('index.njk', {
-    message: 'Super message'
-  });
-});
+app.use('/', require('./routes/main'));
+app.use('/auth', require('./routes/auth'));
+errorHandler(app);
 
 app.listen(app.get('port'), () => {
   console.log(`Server is running at http://localhost:${app.get('port')}`);

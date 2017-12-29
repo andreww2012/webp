@@ -1,0 +1,29 @@
+{% set title = 'Главная страница' %}
+{% extends '_layout.njk' %}
+{% block content %}
+  <h1 class="title">Прохождение теста</h1>
+
+  <form action="/check" method="post">
+    <ul class="test">
+    {% for question in questions %}
+      <li class="test__item">
+        <div class="test__question">{{ question.question }}</div>
+        {% for answer in question.answers %}
+          <div class="test__answer">
+            <input
+              type="radio"
+              name="{{ question.id }}"
+              id="{{ question.id + '_' + answer.id }}"
+              value="{{ answer.id }}">
+            <label for="{{ question.id + '_' + answer.id }}">
+              {{ answer.answer }}
+            </label>
+          </div>
+        {% endfor %}
+      </li>
+    {% endfor %}
+    </ul>
+
+    <input class="submit" type="submit" value="Проверить">
+  </form>
+{% endblock %}

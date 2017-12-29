@@ -1,16 +1,32 @@
+@import "vars";
+
 .header {
   width: 100%;
-  padding: 15px;
-  box-sizing: content-box;
-  background: #00004d;
+  box-sizing: border-box;
+  background: $primary;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header__title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff;
-  transition-duration: 100ms;
+  color: $white;
+  transition-duration: $duration;
   &:hover {
-    color: #ff2400;
+    color: $primary-pair;
+  }
+}
+
+.header__link {
+  padding-left: 15px;
+  color: $white;
+  transition-duration: $duration;
+  &:hover {
+    color: $primary-pair;
   }
 }
